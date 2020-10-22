@@ -1,38 +1,55 @@
-.App {
-  text-align: center;
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1020px 1fr;
+  grid-template-rows: 200px 560px 1fr;
+  gap: 20px 20px;
+  grid-template-areas:
+    ". Title ."
+    ". Canvas ."
+    ". ButtonContainer .";
+ 
+}
+body {
+  background-color:#2A2A2A;
+}
+.Title { grid-area: Title; 
+        display: grid;
+        align-items: end;
+        justify-content: center;}
+
+.Canvas { grid-area: Canvas;
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr;
+          grid-template-areas:
+          " CanvasChild " ;
+          }
+
+#CanvasChild {
+  grid-area: CanvasChild;
+  display: grid;
+  min-width: 1050px;
+  max-height: 550px;
+  background-color: #000000;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.ButtonContainer { 
+          grid-area: ButtonContainer; 
+          grid-template-columns: 1fr 200px 1fr ;
+          display: grid;
+          grid-template-areas:
+            ". Button Explain";
+          }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Button {
+  grid-area: Button; 
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.Explain {
+  grid-area: Explain;
+  display: grid;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  justify-content: right; 
 }
